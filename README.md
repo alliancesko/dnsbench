@@ -252,5 +252,4 @@ The GitHub Actions workflow builds Linux and Windows x64 artifacts.
 
 ## License
 
-No license has been selected yet. The repository owner should add a license
-before encouraging redistribution or accepting external contributions.
+This project is distributed under the [MIT License](LICENSE).
