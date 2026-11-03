@@ -20,6 +20,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes gcc-mingw-w64-x86-64
 
+      - name: Verify published Windows executable
+        run: sha256sum --check SHA256SUMS
+
       - name: Build Linux
         run: make
 
@@ -27,9 +30,7 @@ jobs:
         run: make windows
 
       - name: Inspect outputs
-        run: |
-          file dnsbench dnsbench.exe
-          sha256sum --check SHA256SUMS
+        run: file dnsbench dnsbench.exe
 
       - name: Upload binaries
         uses: actions/upload-artifact@v7

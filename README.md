@@ -87,8 +87,9 @@ Get-FileHash .\dnsbench.exe -Algorithm SHA256
 ```
 
 The resulting hash must match the `dnsbench.exe` entry in `SHA256SUMS`.
-The Makefile sets a fixed `SOURCE_DATE_EPOCH` so unchanged source produces a
-reproducible Windows binary and checksum.
+The Makefile fixes `SOURCE_DATE_EPOCH` to remove build timestamps. Exact binary
+reproducibility still requires the same compiler and linker versions; the
+published checksum verifies the executable stored in this repository.
 
 ## Build
 
