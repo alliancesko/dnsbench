@@ -1,0 +1,13 @@
+# Build outputs
+/dnsbench
+*.o
+
+# Benchmark results and screenshots
+/*.csv
+/*.png
+
+# Editor and OS metadata
+.DS_Store
+Thumbs.db
+*.swp
+*~

@@ -1,0 +1,41 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Install Windows cross-compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes gcc-mingw-w64-x86-64
+
+      - name: Build Linux
+        run: make
+
+      - name: Build Windows x64
+        run: make windows
+
+      - name: Inspect outputs
+        run: |
+          file dnsbench dnsbench.exe
+          sha256sum --check SHA256SUMS
+
+      - name: Upload binaries
+        uses: actions/upload-artifact@v7
+        with:
+          name: dnsbench-binaries
+          path: |
+            dnsbench
+            dnsbench.exe
+          if-no-files-found: error

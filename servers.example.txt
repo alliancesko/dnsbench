@@ -1,0 +1,9 @@
+# IP address                         Display name
+1.1.1.1                              Cloudflare
+1.0.0.1                              Cloudflare secondary
+8.8.8.8                              Google
+8.8.4.4                              Google secondary
+9.9.9.9                              Quad9
+208.67.222.222                        OpenDNS
+2606:4700:4700::1111                  Cloudflare IPv6
+2001:4860:4860::8888                  Google IPv6
